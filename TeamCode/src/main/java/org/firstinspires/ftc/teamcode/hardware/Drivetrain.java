@@ -24,13 +24,13 @@ public class Drivetrain extends SubsystemBase {
     static final double COUNTS_PER_CM = (COUNTS_PER_REVOLUTION*DRIVETRAIN_GEARBOX_RATIO)/(WHEEL_DIAMETER_CM*Math.PI);
 
     public void init(HardwareMap hwMap) {
-        for(int i = 0; i < 4; i++) {
-            drivetrainMotors[i] = hwMap.get(DcMotorEx.class, "Mec Motor " + i);
-            drivetrainMotors[i].setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-            imu = hwMap.get(IMU.class, "imu");
-        }
-        // Assigns the 4 motors to the 4 different variables available in the array and runs w/ encoder enabled
 
+        drivetrainMotors[0] = hwMap.get(DcMotorEx.class, "Mec fl");
+        drivetrainMotors[1] = hwMap.get(DcMotorEx.class, "Mec fr");
+        drivetrainMotors[2] = hwMap.get(DcMotorEx.class, "Mec rl");
+        drivetrainMotors[3] = hwMap.get(DcMotorEx.class, "Mec rr");
+        // Assigns the 4 motors to the 4 different variables available in the array and runs w/o encoder enabled
+        imu = hwMap.get(IMU.class, "imu");
         drivetrainMotors[1].setDirection(DcMotorSimple.Direction.REVERSE);
         drivetrainMotors[2].setDirection(DcMotorSimple.Direction.REVERSE);
         drivetrainMotors[3].setDirection(DcMotorSimple.Direction.REVERSE);

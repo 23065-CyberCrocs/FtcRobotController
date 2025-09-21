@@ -26,19 +26,24 @@ public class Webcam extends SubsystemBase {
         if (currentTags == null || currentTags.isEmpty()) return;
 
         for (AprilTagDetection detection : currentTags) {
-            if (detection.id == 21) {
-                gamePattern[0] = "Green";
-                gamePattern[1] = "Purple";
-                gamePattern[2] = "Purple";
-            } else if (detection.id == 22) {
-                gamePattern[0] = "Purple";
-                gamePattern[1] = "Green";
-                gamePattern[2] = "Purple";
-            } else if (detection.id == 23) {
-                gamePattern[0] = "Purple";
-                gamePattern[1] = "Purple";
-                gamePattern[2] = "Green";
+            switch (detection.id) {
+                case 21:
+                    gamePattern[0] = "Green";
+                    gamePattern[1] = "Purple";
+                    gamePattern[2] = "Purple";
+                    break;
+                case 22:
+                    gamePattern[0] = "Purple";
+                    gamePattern[1] = "Green";
+                    gamePattern[2] = "Purple";
+                    break;
+                case 23:
+                    gamePattern[0] = "Purple";
+                    gamePattern[1] = "Purple";
+                    gamePattern[2] = "Green";
+                    break;
             }
+
         }
     }
 
